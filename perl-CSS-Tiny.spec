@@ -1,28 +1,28 @@
-%define module	CSS-Tiny
-%define name	perl-%{module}
-%define version 1.15
-%define release %mkrel 3
+%define upstream_name	 CSS-Tiny
+%define upstream_version 1.15
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-License:	GPL or Artistic
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	%mkrel 1
+
 Summary:	Read/Write .css files with as little code as possible
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/CSS/%{module}-%{version}.tar.bz2
+Url:            http://search.cpan.org/dist/%{upstream_name}
+Source0:        http://www.cpan.org/modules/by-module/CSS/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 Buildrequires:  perl-devel
 %endif
-BuildArch:	    noarch
-BuildRoot:	    %{_tmppath}/%{name}-%{version}
+BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 CSS::Tiny is a perl class to read and write .css stylesheets with as
 little code as possible, reducing load time and memory overhead.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -43,4 +43,3 @@ rm -rf %{buildroot}
 %doc Changes LICENSE README
 %{perl_vendorlib}/CSS
 %{_mandir}/*/*
-
