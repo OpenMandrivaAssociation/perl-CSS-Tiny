@@ -1,5 +1,5 @@
 %define upstream_name	 CSS-Tiny
-%define upstream_version 1.15
+%define upstream_version 1.17
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
@@ -9,7 +9,7 @@ Summary:	Read/Write .css files with as little code as possible
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:            http://search.cpan.org/dist/%{upstream_name}
-Source0:        http://www.cpan.org/modules/by-module/CSS/%{upstream_name}-%{upstream_version}.tar.bz2
+Source0:        http://www.cpan.org/modules/by-module/CSS/%{upstream_name}-%{upstream_version}.tar.gz
 
 %if %{mdkversion} < 1010
 Buildrequires:  perl-devel
@@ -29,7 +29,7 @@ little code as possible, reducing load time and memory overhead.
 %make
 
 %check
-%{__make} test
+%make test
 
 %install
 rm -rf %{buildroot}
