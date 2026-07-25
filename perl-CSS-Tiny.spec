@@ -1,15 +1,15 @@
 %define upstream_name	 CSS-Tiny
-%define upstream_version 1.19
+%define upstream_version 1.20
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	Read/Write .css files with as little code as possible
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/CSS/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://github.com/chorny/CSS-Tiny
+Source0:	https://cpan.metacpan.org/authors/id/C/CH/CHORNY/CSS-Tiny-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
